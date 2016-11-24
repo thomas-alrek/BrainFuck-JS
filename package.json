@@ -1,0 +1,17 @@
+{
+  "name": "brainfuck-js",
+  "version": "1.0.0",
+  "description": "A simple and fast BF interpreter written in JS",
+  "main": "run.js",
+  "engines": {
+    "node": ">=7.0"
+  },
+  "scripts": {
+     "hello": "node run samples/hello.b"
+  },
+  "author": "Thomas Alrek<thomas@alrek.no>",
+  "license": "GPL-2.0",
+  "dependencies": {
+    "readline-sync": "^1.4.5"
+  }
+}
