@@ -64,18 +64,14 @@ class BrainFuck{
 	}
 	stackTrace(trace){
 		if(this.options.debug){
-			process.stdout.write("\x1b[0;0f\x1B[?25l");
-			if(this.options.mem_dump){
-				this.dump();
-			}
+			process.stdout.write("\u001b[2J\u001b[0;0H");
 			console.log("Pointer: " + this.toHex(trace.address, this.memory.length) + " Value: " + this.toHex(trace.value, this.options.cell_size) + " PC: " + this.toHex(this.pc, this.program.length));
-			console.log("Instruction: " + this.toHex(trace.instruction.charCodeAt(0), this.options.cell_size) + " Address: " + this.toHex(trace.address, this.memory.length));
+			console.log("Instruction: " + trace.instruction + " Address: " + this.toHex(trace.address, this.memory.length));
 			console.log("\nOutput: \n\n" + this.buffer);
 		}
 	}
 }
 
-BrainFuck.prototype.compile = require('./compile');
 BrainFuck.prototype.toHex = require('./to-hex');
 BrainFuck.prototype.operands = require('./operands');
 BrainFuck.prototype.dump = require('./dump');

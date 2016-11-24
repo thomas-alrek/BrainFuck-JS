@@ -12,8 +12,14 @@ fs.readFile(filename, 'utf8', function(err, data) {
 		program.options.debug = true;
 	}
 
+	if(process.argv.find(arg => arg === '--memdump')){
+		program.options.mem_dump = true;
+	}
+
 	let exitHandler = () => {
-		program.dump();
+		if(program.options.mem_dump){
+			program.dump();
+		}
 		if(program.options.debug){
 			process.stderr.write('\x1B[?25h');
 		}
